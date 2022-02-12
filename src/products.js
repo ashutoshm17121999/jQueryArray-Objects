@@ -69,6 +69,7 @@ function cartDisplay(pod){
     
     // console.log("ashutosh");
 }
+//for update value of products in the cart by input values
 $(document).ready(function(){
     var ival;;
     $(document).on('click','#Update', function(){
@@ -77,5 +78,24 @@ $(document).ready(function(){
       emptCart[ival].quantity=pqua;
     //   console.log(12778)
       cartDisplay(emptCart)
+    })
+})
+// for empty cart
+function cartEmpt(){
+    emptCart=[];
+    cartDisplay(emptCart)
+}
+//for delete products from cart
+
+$(document).ready(function(){
+    var clear;
+    $(document).on('click','#delete',function(){
+        clear=$(this).data('del');
+        for(var i=0;i<emptCart.length;i++){
+            if(emptCart[i].id==clear){
+                emptCart.splice(i,1);
+            }
+        }
+        cartDisplay(emptCart)
     })
 })
